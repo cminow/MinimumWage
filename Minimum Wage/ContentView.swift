@@ -46,7 +46,7 @@ struct ContentView: View {
             .disabled(disableWorkButton)
 
             Button {
-                disableWorkButton = true
+                disableWorkButton = false
                 startWorkDate = .now
                 lastWorkDate = .now
                 earnings = 0.00
