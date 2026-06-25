@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 8.0) {
             TimelineView(.periodic(from: .now, by: 0.01)) { context in
-                Text("Earnings: \(earnings.formatted(.currency(code: "USD")))")
+                Text("Earnings: \(earnings.formatted(.currency(code: "USD"))) in \(Duration.seconds(Date.now.timeIntervalSince(startWorkDate)).formatted(.time(pattern: .hourMinuteSecond)))")
                     .monospacedDigit()
                     .padding(20.0)
                     .onChange(of: context.date) { oldDate, newDate in
