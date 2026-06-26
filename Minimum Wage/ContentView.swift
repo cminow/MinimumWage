@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var startWorkDate: Date = .now
     @State private var lastWorkDate: Date = .now
     @State private var disableWorkButton: Bool = false
+    @State private var sliderValue: Double = 0.0
 
     var body: some View {
         VStack(spacing: 8.0) {
@@ -22,31 +23,36 @@ struct ContentView: View {
                     .monospacedDigit()
                     .padding(20.0)
                     .onChange(of: context.date) { oldDate, newDate in
-                        if newDate.timeIntervalSince1970 >= lastWorkDate.timeIntervalSince1970 + timePerPenny {
-                            disableWorkButton = false
+                        if newDate.timeIntervalSince1970 >= lastWorkDate.timeIntervalSince1970 + timePerPenny && runningSimulation {
                             lastWorkDate = newDate
+                            earnings += 0.01
                         }
                     }
             }
             
-            Button {
-                disableWorkButton = true
-                lastWorkDate = .now
-                earnings += 0.01
-            } label: {
-                Text("Do Work")
+            Slider(
+                value: $sliderValue,
+                label: {
+                    Text("Do Work")
+                },
+                onEditingChanged: { editing in
+                    if !editing {
+                        runningSimulation = false
+                    } else {
+                        runningSimulation = true
+                    }
+                }
+            )
+            .onChange(of: sliderValue) { _, _ in
+                if earnings == 0.0 {
+                    earnings += 0.01
+                }
             }
-            .padding([.leading, .trailing], 8.0)
-            .padding([.top, .bottom], 4.0)
-            .background {
-                RoundedRectangle(cornerRadius: 4)
-                    .foregroundStyle(disableWorkButton ? Color("disabledGray") : .green)
-            }
-            .tint(disableWorkButton ? .gray : .black)
-            .disabled(disableWorkButton)
+
+            Text("Work the slider to earn.")
+                .font(.caption)
 
             Button {
-                disableWorkButton = false
                 startWorkDate = .now
                 lastWorkDate = .now
                 earnings = 0.00
