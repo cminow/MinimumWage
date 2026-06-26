@@ -24,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB736BE52FEEDB1000FB53FD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CBB53F322FED88B0005AD9E9 /* Minimum Wage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Minimum Wage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB53F3F2FED88B1005AD9E9 /* Minimum WageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Minimum WageTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB53F492FED88B1005AD9E9 /* Minimum WageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Minimum WageUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +80,7 @@
 				CBB53F422FED88B1005AD9E9 /* Minimum WageTests */,
 				CBB53F4C2FED88B1005AD9E9 /* Minimum WageUITests */,
 				CBB53F332FED88B0005AD9E9 /* Products */,
+				CB736BE52FEEDB1000FB53FD /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
